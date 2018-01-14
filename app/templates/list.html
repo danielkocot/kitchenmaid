@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <h1>LIST OF GROCERIES</h1>
+    <table width="100%">
+    <thead>
+        <tr>
+            <td></td>
+            <td>Name</td>
+            <td>In Stock</td>
+            <td>Best Before</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    {% for grocery in groceries %}
+    <tr>
+        <td><a href="/add/{{ grocery.id }}">ADD</a></td>
+        <td>{{ grocery.name }}</td>
+        <td>{{ grocery.stock }}</td>
+        <td>{{ grocery.best_before }}</td>
+        <td><a href="/edit/{{ grocery.id }}">EDIT</a></td>
+        <td><a href="/take/{{ grocery.id }}">TAKE</a></td>
+        <td><a href="/delete/{{ grocery.id }}">DELETE</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+
+    
+    </div>
+{% endblock %}
